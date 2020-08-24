@@ -1,15 +1,29 @@
 {
-  "name": "stellar-cellar",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "9.5.2",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
-  }
+	"name": "stellar-cellar",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"prettier": "npx prettier --write ."
+	},
+	"dependencies": {
+		"@material-ui/core": "^4.11.0",
+		"@material-ui/icons": "^4.9.1",
+		"next": "9.5.2",
+		"next-images": "^1.4.1",
+		"react": "16.13.1",
+		"react-dom": "16.13.1",
+		"react-image-lightbox": "^5.1.1"
+	},
+	"devDependencies": {
+		"prettier": "^2.0.5"
+	},
+	"prettier": {
+		"useTabs": true,
+		"singleQuote": true,
+		"printWidth": 80,
+		"tabWidth": 4
+	}
 }

@@ -1,65 +1,148 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
+import layout from './../styles/Layout.module.css';
+import Navbar from '../comps/Navbar';
+import sunLogo from './../img/sun-logo.svg';
+import Grid from '@material-ui/core/Grid';
+import creditCards from './../img/credit-card-logos.png';
+import tapeMeasure from './../img/tape-measure.svg';
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import Link from 'next/link';
+
+import gordon from './../img/galleries/1-sloped-flat/cover-gallery-1.jpeg';
+import GalleryCard from '../comps/GalleryCard';
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+	return (
+		<>
+			<Navbar />
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+			<div className={layout.container}>
+				<Head>
+					<title>Home | Stellar Cellar Doors</title>
+					<link rel="icon" href="/favicon.ico" />
+				</Head>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+				<main className={layout.main}>
+					<img
+						src={sunLogo}
+						alt={'Logo of a sun behind clouds'}
+						className={styles.logo}
+					/>
+					<h1 className={layout.title}>Stellar Cellar Doors</h1>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+					<p className={layout.description}>
+						Licensed, Certified, and Insured. NY’s Cellar Door
+						Specialist For Ten Years Commercial Or Residential flat
+						or sloped, stock size or custom made.
+					</p>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+					<Grid
+						container
+						spacing={4}
+						justify={'center'}
+						className={styles.headingGrid}
+					>
+						<Grid
+							className={styles.headingGridItem}
+							item
+							sm={4}
+							md={3}
+							lg={3}
+							xl={3}
+							xs={10}
+						>
+							<h3>Call Us Now 9am- 7pm</h3>
+							<p>646-703-3444</p>
+							<p>info@stellarcellardoors.com</p>
+							<p>Phone Quotes Gladly Provided!</p>
+						</Grid>
+						<Grid
+							className={styles.headingGridItem}
+							item
+							sm={4}
+							md={3}
+							lg={3}
+							xl={3}
+							xs={10}
+						>
+							<h3>We accept all major credit card providers</h3>
+							<img
+								className={styles.creditCardProviders}
+								src={creditCards}
+								alt={'Supported credit card providers'}
+							/>
+						</Grid>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+						<Grid
+							className={styles.headingGridItem}
+							item
+							sm={4}
+							md={3}
+							lg={3}
+							xl={3}
+							xs={10}
+						>
+							<h3>Serving the greater New York City area</h3>
+							<p>
+								We serve all of NYC, Nassau, Westchester, Essex,
+								Hudson, Union, and Bergen Counties.
+							</p>
+							<p>
+								Not sure if we serve your area? Feel free to
+								give us a call!
+							</p>
+						</Grid>
+					</Grid>
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+					<img
+						src={tapeMeasure}
+						alt={'Tape Measure'}
+						className={styles.measuringTape}
+					/>
+					<h2>Don't know how to measure your door?</h2>
+					<p>
+						Not to worry! We've compiled a list of instructions so
+						you can get the most accurate measurements and we can
+						best serve you.
+					</p>
+					<Link href={'/how-to-measure'}>
+						<Button
+							variant={'contained'}
+							className={styles.measureButton}
+							color={'secondary'}
+						>
+							Learn To Measure My Door
+						</Button>
+					</Link>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+					<h2>Galleries</h2>
+					<p>See some of our past work</p>
+
+					<Grid container spacing={2}>
+						<Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
+							<GalleryCard
+								img={gordon}
+								title={'Sloped and Flat Cellar Doors'}
+								link={'/gallery/sloped-flat'}
+							/>
+						</Grid>
+
+						<Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
+							<GalleryCard
+								img={gordon}
+								title={'Sloped and Flat Cellar Doors'}
+								link={'/gallery/sloped-flat'}
+							/>
+						</Grid>
+					</Grid>
+				</main>
+
+				<footer className={layout.footer}>
+					<p>Stellar Cellar Doors &copy;</p>
+				</footer>
+			</div>
+		</>
+	);
 }

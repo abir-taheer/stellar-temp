@@ -1,0 +1,53 @@
+.navbar {
+    flex-grow: 1;
+}
+
+.title {
+    flex-grow: 1;
+}
+
+.search {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 5px;
+    position: relative;
+}
+
+.search input {
+    color: white;
+}
+
+.searchIcon {
+    padding: 1rem;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input {
+    padding: 0.5rem 0.5rem 0.5rem 3rem;
+    transition: width 0.5s ease-in;
+    width: 100%;
+}
+
+.drawerContent {
+    width: 300px;
+    max-width: 70vw;
+}
+
+.logo {
+    width: 150px;
+    max-width: 70%;
+}
+
+.drawerHeading {
+    padding: 1rem;
+    color: grey;
+}
+
+.drawerHeading h1 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}

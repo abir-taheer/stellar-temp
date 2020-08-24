@@ -165,7 +165,7 @@ export default function Home() {
 						<GalleryGridItem
 							img={aluminum}
 							title={'Aluminum Doors'}
-							link={'/gallery/gate'}
+							link={'/gallery/aluminum'}
 						/>
 						<GalleryGridItem
 							img={screenDoor}

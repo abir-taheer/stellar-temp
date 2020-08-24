@@ -16,8 +16,6 @@ import GalleryCard from '../comps/GalleryCard';
 export default function Home() {
 	return (
 		<>
-			<Navbar />
-
 			<div className={layout.container}>
 				<Head>
 					<title>Home | Stellar Cellar Doors</title>
@@ -138,10 +136,6 @@ export default function Home() {
 						</Grid>
 					</Grid>
 				</main>
-
-				<footer className={layout.footer}>
-					<p>Stellar Cellar Doors &copy;</p>
-				</footer>
 			</div>
 		</>
 	);

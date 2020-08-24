@@ -8,8 +8,6 @@ import React from 'react';
 const GalleryPageTemplate = ({ images, title, tagline }) => {
 	return (
 		<>
-			<Navbar />
-
 			<div className={layout.container}>
 				<main className={layout.main}>
 					<BackButton

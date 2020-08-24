@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -17,11 +17,28 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
+	const router = useRouter();
+
 	const [open, setOpen] = React.useState(false);
 	const [search, setSearch] = React.useState('');
 	const ref = React.createRef();
+
+	useEffect(() => {
+		const handleRouteChange = () => {
+			setOpen(false);
+		};
+
+		router.events.on('routeChangeComplete', handleRouteChange);
+
+		// If the component is unmounted, unsubscribe
+		// from the event with the `off` method:
+		return () => {
+			router.events.off('routeChangeComplete', handleRouteChange);
+		};
+	}, []);
 
 	return (
 		<div>

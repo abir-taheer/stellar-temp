@@ -8,7 +8,6 @@ const HowToMeasure = () => {
 			<Head>
 				<title>How To Measure Your Door | Stellar Cellar Doors</title>
 			</Head>
-			<Navbar />
 			<h1>How To Measure</h1>
 		</div>
 	);

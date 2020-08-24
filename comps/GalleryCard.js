@@ -25,9 +25,11 @@ const GalleryCard = ({ img, title, link, subtitle }) => {
 				</CardActionArea>
 			</Link>
 			<CardActions>
-				<Button size="small" color="primary">
-					Learn More
-				</Button>
+				<Link href={link}>
+					<Button size="small" color="primary">
+						View More
+					</Button>
+				</Link>
 			</CardActions>
 		</Card>
 	);

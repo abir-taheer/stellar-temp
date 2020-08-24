@@ -11,7 +11,25 @@ import Button from '@material-ui/core/Button';
 import Link from 'next/link';
 
 import gordon from './../img/galleries/1-sloped-flat/cover-gallery-1.jpeg';
+import custom from './../img/galleries/2-custom/brown-door-angle.jpg';
+import commercial from './../img/galleries/3-commercial/commercial-black-front.jpg';
+import quad from './../img/galleries/4-quad/img_7516.jpg';
+import brooklynCoalChute from './../img/galleries/5-brooklyn-coal-chute/white-door-square.jpg';
+import aluminum from './../img/galleries/6-aluminum/white-in-front.jpg';
+import screenDoor from './../img/galleries/7-protective-screens/screen door.jpg';
+import steps from './../img/galleries/8-steps-handrails/black-exit-staircase-facing-down.jpg';
+import gate from './../img/galleries/9-gate/default.jpg';
+import colonial from './../img/galleries/10-colonial/red-door-even-lighting.jpg';
+
 import GalleryCard from '../comps/GalleryCard';
+
+function GalleryGridItem({ img, title, link }) {
+	return (
+		<Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
+			<GalleryCard img={img} title={title} link={link} />
+		</Grid>
+	);
+}
 
 export default function Home() {
 	return (
@@ -118,22 +136,57 @@ export default function Home() {
 					<h2>Galleries</h2>
 					<p>See some of our past work</p>
 
-					<Grid container spacing={2}>
-						<Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
-							<GalleryCard
-								img={gordon}
-								title={'Sloped and Flat Cellar Doors'}
-								link={'/gallery/sloped-flat'}
-							/>
-						</Grid>
-
-						<Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
-							<GalleryCard
-								img={gordon}
-								title={'Sloped and Flat Cellar Doors'}
-								link={'/gallery/sloped-flat'}
-							/>
-						</Grid>
+					<Grid container spacing={2} justify={'center'}>
+						<GalleryGridItem
+							img={gordon}
+							title={'Sloped and Flat Gordon Doors'}
+							link={'/gallery/sloped-flat'}
+						/>
+						<GalleryGridItem
+							img={custom}
+							title={'Custom Doors'}
+							link={'/gallery/custom'}
+						/>
+						<GalleryGridItem
+							img={commercial}
+							title={'Commercial Doors'}
+							link={'/gallery/commercial'}
+						/>
+						<GalleryGridItem
+							img={quad}
+							title={'Quad Doors'}
+							link={'/gallery/quad'}
+						/>
+						<GalleryGridItem
+							img={brooklynCoalChute}
+							title={'Brooklyn Coal Chute Doors'}
+							link={'/gallery/brooklyn-coal-chute'}
+						/>
+						<GalleryGridItem
+							img={aluminum}
+							title={'Aluminum Doors'}
+							link={'/gallery/gate'}
+						/>
+						<GalleryGridItem
+							img={screenDoor}
+							title={'Doors With Protective Screens'}
+							link={'/gallery/protective-screens'}
+						/>
+						<GalleryGridItem
+							img={steps}
+							title={'Steps and Handrails'}
+							link={'/gallery/steps-and-handrails'}
+						/>
+						<GalleryGridItem
+							img={gate}
+							title={'Gate doors'}
+							link={'/gallery/gate'}
+						/>
+						<GalleryGridItem
+							img={colonial}
+							title={'Colonial Doors'}
+							link={'/gallery/colonial'}
+						/>
 					</Grid>
 				</main>
 			</div>

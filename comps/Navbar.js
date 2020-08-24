@@ -53,7 +53,7 @@ const Navbar = () => {
 						<Menu />
 					</IconButton>
 					<Typography variant="h6" className={styles.title}>
-						Stellar Cellar Doors
+						<Link href={'/'}>Stellar Cellar Doors</Link>
 					</Typography>
 
 					<div className={styles.search}>

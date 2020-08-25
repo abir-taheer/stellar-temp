@@ -6,7 +6,13 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/icons/Menu';
 import styles from './../styles/Navbar.module.css';
-import { EmojiSymbols, Home, Search, Straighten } from '@material-ui/icons';
+import {
+	EmojiSymbols,
+	Home,
+	MeetingRoom,
+	Search,
+	Straighten,
+} from '@material-ui/icons';
 import TextField from '@material-ui/core/TextField';
 import InputBase from '@material-ui/core/InputBase';
 import Drawer from '@material-ui/core/Drawer';
@@ -18,6 +24,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { useRouter } from 'next/router';
+import galleryItems from './galleryItems';
 
 const Navbar = () => {
 	const router = useRouter();
@@ -108,14 +115,16 @@ const Navbar = () => {
 					</Link>
 
 					<ListSubheader disableSticky>Galleries</ListSubheader>
-					<Link href={'/catalog'}>
-						<ListItem button>
-							<ListItemIcon>
-								<EmojiSymbols />
-							</ListItemIcon>
-							<ListItemText primary={'Catalog'} />
-						</ListItem>
-					</Link>
+					{galleryItems.map((item, index) => (
+						<Link href={item.link}>
+							<ListItem button>
+								<ListItemIcon>
+									<MeetingRoom />
+								</ListItemIcon>
+								<ListItemText primary={item.title} />
+							</ListItem>
+						</Link>
+					))}
 				</List>
 			</Drawer>
 		</div>

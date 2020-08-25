@@ -23,6 +23,7 @@ import colonial from './../img/galleries/10-colonial/red-door-even-lighting.jpg'
 
 import GalleryCard from '../comps/GalleryCard';
 import Locations from '../comps/Locations';
+import galleryItems from '../comps/galleryItems';
 
 function GalleryGridItem({ img, title, link }) {
 	return (
@@ -143,56 +144,9 @@ export default function Home() {
 						justify={'center'}
 						className={layout.bottomMargin}
 					>
-						<GalleryGridItem
-							img={gordon}
-							title={'Sloped and Flat Gordon Doors'}
-							link={'/gallery/sloped-flat'}
-						/>
-						<GalleryGridItem
-							img={custom}
-							title={'Custom Doors'}
-							link={'/gallery/custom'}
-						/>
-						<GalleryGridItem
-							img={commercial}
-							title={'Commercial Doors'}
-							link={'/gallery/commercial'}
-						/>
-						<GalleryGridItem
-							img={quad}
-							title={'Quad Doors'}
-							link={'/gallery/quad'}
-						/>
-						<GalleryGridItem
-							img={brooklynCoalChute}
-							title={'Brooklyn Coal Chute Doors'}
-							link={'/gallery/brooklyn-coal-chute'}
-						/>
-						<GalleryGridItem
-							img={aluminum}
-							title={'Aluminum Doors'}
-							link={'/gallery/aluminum'}
-						/>
-						<GalleryGridItem
-							img={screenDoor}
-							title={'Doors With Protective Screens'}
-							link={'/gallery/protective-screens'}
-						/>
-						<GalleryGridItem
-							img={steps}
-							title={'Steps and Handrails'}
-							link={'/gallery/steps-and-handrails'}
-						/>
-						<GalleryGridItem
-							img={gate}
-							title={'Gate doors'}
-							link={'/gallery/gate'}
-						/>
-						<GalleryGridItem
-							img={colonial}
-							title={'Colonial Doors'}
-							link={'/gallery/colonial'}
-						/>
+						{galleryItems.map((item, index) => (
+							<GalleryGridItem key={index} {...item} />
+						))}
 					</Grid>
 
 					<Locations />

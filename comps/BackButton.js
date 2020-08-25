@@ -2,10 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import Button from '@material-ui/core/Button';
 import layout from './../styles/Layout.module.css';
+import { ArrowBackIos } from '@material-ui/icons';
 
 const BackButton = ({
-	text,
-	link,
+	text = 'Back To Home',
+	link = '/',
 	color = 'primary',
 	variant = 'outlined',
 }) => {
@@ -13,7 +14,7 @@ const BackButton = ({
 		<div className={layout.backButtonContainer}>
 			<Link href={link}>
 				<Button color={color} variant={variant}>
-					{text}
+					<ArrowBackIos className={layout.backButtonArrow} /> {text}
 				</Button>
 			</Link>
 		</div>

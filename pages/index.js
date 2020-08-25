@@ -22,6 +22,7 @@ import gate from './../img/galleries/9-gate/default.jpg';
 import colonial from './../img/galleries/10-colonial/red-door-even-lighting.jpg';
 
 import GalleryCard from '../comps/GalleryCard';
+import Locations from '../comps/Locations';
 
 function GalleryGridItem({ img, title, link }) {
 	return (
@@ -117,7 +118,7 @@ export default function Home() {
 						alt={'Tape Measure'}
 						className={styles.measuringTape}
 					/>
-					<h2>Don't know how to measure your door?</h2>
+					<h2>Need tips for measuring your door?</h2>
 					<p>
 						Not to worry! We've compiled a list of instructions so
 						you can get the most accurate measurements and we can
@@ -129,14 +130,19 @@ export default function Home() {
 							className={styles.measureButton}
 							color={'secondary'}
 						>
-							Learn To Measure My Door
+							Tips To Measure My Door
 						</Button>
 					</Link>
 
 					<h2>Galleries</h2>
 					<p>See some of our past work</p>
 
-					<Grid container spacing={2} justify={'center'}>
+					<Grid
+						container
+						spacing={2}
+						justify={'center'}
+						className={layout.bottomMargin}
+					>
 						<GalleryGridItem
 							img={gordon}
 							title={'Sloped and Flat Gordon Doors'}
@@ -188,6 +194,8 @@ export default function Home() {
 							link={'/gallery/colonial'}
 						/>
 					</Grid>
+
+					<Locations />
 				</main>
 			</div>
 		</>

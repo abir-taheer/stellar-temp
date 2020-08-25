@@ -19,12 +19,12 @@ const images = [
 	pic3,
 	pic4,
 	pic5,
-	pic6,
 	pic7,
 	pic8,
-	pic9,
 	pic10,
 	pic11,
+	pic9,
+	pic6,
 ];
 
 const StepsAndHandrails = () => {

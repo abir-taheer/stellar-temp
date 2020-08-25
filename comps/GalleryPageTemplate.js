@@ -1,7 +1,6 @@
 import Navbar from './Navbar';
 import layout from '../styles/Layout.module.css';
 import BackButton from './BackButton';
-import { ArrowBackIos } from '@material-ui/icons';
 import Gallery from './Gallery';
 import React from 'react';
 
@@ -10,17 +9,7 @@ const GalleryPageTemplate = ({ images, title, tagline }) => {
 		<>
 			<div className={layout.container}>
 				<main className={layout.main}>
-					<BackButton
-						text={
-							<>
-								<ArrowBackIos
-									className={layout.backButtonArrow}
-								/>{' '}
-								Back Home
-							</>
-						}
-						link={'/'}
-					/>
+					<BackButton />
 
 					<h1>{title}</h1>
 					<p>{tagline}</p>

@@ -11,8 +11,8 @@ const Gallery = ({ images }) => {
 			<MasonryGallery
 				backdropClosesModal
 				images={images}
-				rowHeight={isMobile ? 500 : 350}
-				margin={10}
+				rowHeight={isMobile ? undefined : 350}
+				margin={5}
 				enableImageSelection={false}
 			/>
 		</div>

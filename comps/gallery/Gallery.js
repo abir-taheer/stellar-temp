@@ -12,7 +12,7 @@ const Gallery = ({ images }) => {
 				backdropClosesModal
 				images={images}
 				rowHeight={isMobile ? undefined : 350}
-				margin={5}
+				margin={1}
 				enableImageSelection={false}
 			/>
 		</div>

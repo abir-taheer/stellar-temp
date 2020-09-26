@@ -6,15 +6,12 @@ import { useMediaQuery } from '@material-ui/core';
 const Gallery = ({ images }) => {
 	const isMobile = useMediaQuery('(max-width: 1024px)');
 
-	const innerHeight =
-		typeof window !== 'undefined' ? window?.innerHeight : 1000;
-
 	return (
 		<div className={layout.gallery}>
 			<MasonryGallery
 				backdropClosesModal
 				images={images}
-				rowHeight={isMobile ? 300 : innerHeight / 2.5}
+				rowHeight={isMobile ? 500 : 350}
 				margin={10}
 				enableImageSelection={false}
 			/>

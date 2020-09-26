@@ -88,15 +88,6 @@ const Navbar = () => {
 						</ListItem>
 					</Link>
 
-					<Link href={'/how-to-measure'}>
-						<ListItem button>
-							<ListItemIcon>
-								<Straighten />
-							</ListItemIcon>
-							<ListItemText primary={'How To Measure'} />
-						</ListItem>
-					</Link>
-
 					<ListSubheader disableSticky>Galleries</ListSubheader>
 					{galleryItems.map((item, index) => (
 						<Link href={item.link} key={index}>

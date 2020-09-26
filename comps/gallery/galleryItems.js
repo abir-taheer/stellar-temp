@@ -2,6 +2,7 @@ const galleryItems = [
 	{
 		img: '/img/galleries/1-sloped-flat/cover-gallery-1.jpg',
 		title: 'Sloped and Flat Bilco/Gordon Doors',
+		shortTitle: 'Sloped and Flat Doors',
 		link: '/gallery/sloped-flat',
 		keywords: ['gordon', 'sloped', 'flat', 'measure', 'bilco'],
 	},

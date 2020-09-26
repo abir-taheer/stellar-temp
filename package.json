@@ -15,9 +15,13 @@
 		"next-images": "^1.4.1",
 		"react": "16.13.1",
 		"react-dom": "16.13.1",
-		"react-image-lightbox": "^5.1.1"
+		"react-grid-gallery": "^0.5.5",
+		"react-image-lightbox": "^5.1.1",
+		"react-lazy-load-image-component": "^1.5.0"
 	},
 	"devDependencies": {
+		"axios": "^0.20.0",
+		"cloudinary": "^1.23.0",
 		"prettier": "^2.0.5"
 	},
 	"prettier": {

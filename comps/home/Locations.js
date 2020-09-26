@@ -1,5 +1,5 @@
 import React from 'react';
-import layout from '../styles/Layout.module.css';
+import layout from '../../styles/Layout.module.css';
 import { Grid, Link } from '@material-ui/core';
 
 function SmartLocation({ title, address }) {
@@ -25,14 +25,8 @@ const Locations = (props) => {
 					<ul className={layout.noListStyle}>
 						<li>
 							<SmartLocation
-								title={'Factory'}
-								address={'116-30 Springfield Blvd. Jamaica, NY'}
-							/>
-						</li>
-						<li>
-							<SmartLocation
 								title={'Administrative Offices'}
-								address={`NYC - 39 Avenue A NY, NY`}
+								address={`NYC - 47 Avenue A NY, NY`}
 							/>
 						</li>
 						<li>

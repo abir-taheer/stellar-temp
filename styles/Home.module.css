@@ -1,5 +1,5 @@
 .logo {
-	width: 200px;
+	width: 150px;
 	max-width: 80%;
 }
 
@@ -9,13 +9,13 @@
 }
 
 .headingGridItem {
-	border: 1px solid #eaeaea;
+	border: 1px solid rgba(0, 0, 0, 0.05);
 	border-radius: 5px;
 	margin: 10px;
 }
 
 .headingGridItem:hover {
-	border: 1px solid rgba(0, 0, 0, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .creditCardProviders {

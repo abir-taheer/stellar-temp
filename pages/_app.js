@@ -1,10 +1,9 @@
 import '../styles/globals.css';
 import { StylesProvider } from '@material-ui/core/styles';
-import ThemeProvider from '../comps/ThemeProvider';
-import 'react-image-lightbox/style.css';
-import Navbar from '../comps/Navbar';
+import ThemeProvider from '../comps/context/ThemeProvider';
+import Navbar from '../comps/ui/Navbar';
 import React from 'react';
-import Footer from '../comps/Footer';
+import Footer from '../comps/ui/Footer';
 
 function MyApp({ Component, pageProps }) {
 	return (

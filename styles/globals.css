@@ -15,3 +15,7 @@ a {
 * {
 	box-sizing: border-box;
 }
+
+.ReactGridGallery_tile-viewport {
+	border-radius: 10px;
+}

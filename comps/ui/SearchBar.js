@@ -19,7 +19,7 @@ const SearchBar = () => {
 	React.useEffect(() => {
 		const listener = (ev) => {
 			if (
-				!ev.path.some(
+				!ev?.path?.some(
 					(e) => e?.children === containerRef?.current?.children
 				)
 			) {

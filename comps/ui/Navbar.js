@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/icons/Menu';
-import { Home, MeetingRoom, Search, Straighten } from '@material-ui/icons';
+import { Home, MeetingRoom, Straighten } from '@material-ui/icons';
 import Drawer from '@material-ui/core/Drawer';
 
 import sunLogo from '../../img/sun-logo.svg';

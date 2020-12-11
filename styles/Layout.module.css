@@ -84,3 +84,7 @@
 	text-align: center;
 	width: 90vw;
 }
+
+.galleryImage {
+	cursor: zoom-in;
+}

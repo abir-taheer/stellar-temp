@@ -1,20 +1,37 @@
-import React from 'react';
+import React, { createRef, useEffect } from 'react';
 import layout from '../../styles/Layout.module.css';
-import MasonryGallery from 'react-grid-gallery';
-import { useMediaQuery } from '@material-ui/core';
+import Lightbox, { triggerLightbox } from './lightbox';
+import $ from 'jquery';
+import 'justifiedGallery';
 
 const Gallery = ({ images }) => {
-	const isMobile = useMediaQuery('(max-width: 1024px)');
+	const galleryRef = createRef();
+
+	useEffect(() => {
+		if (galleryRef.current) {
+			$(galleryRef.current).justifiedGallery({
+				rowHeight: 200,
+				margins: 4,
+				captions: false,
+			});
+		}
+	});
 
 	return (
 		<div className={layout.gallery}>
-			<MasonryGallery
-				backdropClosesModal
-				images={images}
-				rowHeight={isMobile ? 110 : 350}
-				margin={1}
-				enableImageSelection={false}
-			/>
+			<Lightbox />
+
+			<div ref={galleryRef}>
+				{images.map((image) => (
+					<a
+						key={image.src}
+						onClick={() => triggerLightbox(image.src)}
+						className={layout.galleryImage}
+					>
+						<img alt={image.alt} src={image.src} />
+					</a>
+				))}
+			</div>
 		</div>
 	);
 };

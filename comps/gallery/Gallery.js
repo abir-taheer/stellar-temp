@@ -1,16 +1,16 @@
 import React, { createRef, useEffect } from 'react';
 import layout from '../../styles/Layout.module.css';
-import Lightbox, { triggerLightbox } from './lightbox';
+import Lightbox, { triggerLightbox } from './Lightbox';
 import $ from 'jquery';
 import 'justifiedGallery';
 
-const Gallery = ({ images }) => {
+const Gallery = ({ images, rowHeight = 250 }) => {
 	const galleryRef = createRef();
 
 	useEffect(() => {
 		if (galleryRef.current) {
 			$(galleryRef.current).justifiedGallery({
-				rowHeight: 200,
+				rowHeight,
 				margins: 4,
 				captions: false,
 			});

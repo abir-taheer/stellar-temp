@@ -34,4 +34,6 @@ yarn-error.log*
 .vercel
 
 out/
+out_publish/
+out_functions/
 .idea/

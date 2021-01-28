@@ -1,7 +1,7 @@
 import DataLoader from "dataloader";
 import mongoose from "./../../models/mongoose";
 
-export default function findManyLoader(
+export default function findManyLoaderFactory(
   model,
   field,
   conditions = {},

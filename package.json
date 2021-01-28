@@ -19,6 +19,7 @@
 		"graphql-iso-date": "^3.6.1",
 		"graphql-scalar-objectid": "^0.1.2",
 		"jquery": "^3.5.1",
+		"jsonwebtoken": "^8.5.1",
 		"justifiedGallery": "^3.8.1",
 		"mongoose": "^5.11.13",
 		"next": "^10.0.3",

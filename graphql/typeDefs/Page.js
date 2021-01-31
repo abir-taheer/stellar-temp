@@ -8,5 +8,6 @@ export default gql`
 		head: String
 		body: String
 		pictures: [Picture]
+		order: Int
 	}
 `;

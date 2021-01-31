@@ -1,7 +1,7 @@
-import resource from "./resource";
+import resource from './resource';
 
 const Picture = {
-  resource,
+	resource,
 };
 
 export default Picture;

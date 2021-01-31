@@ -6,11 +6,13 @@ import Page from './Page';
 // Scalars
 import ObjectId from 'graphql-scalar-objectid';
 import { GraphQLDate, GraphQLTime, GraphQLDateTime } from 'graphql-iso-date';
+import Mutation from './Mutation';
 
 const Resolvers = {
 	CloudinaryResource,
 	Picture,
 	Query,
+	Mutation,
 	Page,
 	// Custom Scalar Types
 	ObjectId,

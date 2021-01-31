@@ -1,0 +1,38 @@
+import Page from '../../../models/page';
+import { UserInputError } from 'apollo-server-micro';
+
+export default async (
+	root,
+	{ title, url, head, body, includes },
+	{ adminRequired }
+) => {
+	adminRequired();
+
+	if (!title) {
+		throw new UserInputError(
+			'You need to provide a title to create a page'
+		);
+	}
+
+	if (!url) {
+		throw new UserInputError('You need to provide a url to create a page');
+	}
+
+	const existingPage = await Page.findByUrl(url);
+
+	if (existingPage) {
+		throw new UserInputError('There is already a page at that url');
+	}
+
+	const order = await Page.countDocuments();
+
+	return await Page.create({
+		title,
+		body,
+		head,
+		url,
+		includes,
+		order,
+		pictureIds: [],
+	});
+};

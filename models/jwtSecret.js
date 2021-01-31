@@ -33,6 +33,7 @@ JWTSecretSchema.statics.getCurrentSecret = () => {
 	return model.findOne({ useUntil: { $gt: now } });
 };
 
-const JWTSecret = mongoose.models.JWTSecret || mongoose.model('JWTSecret');
+const JWTSecret =
+	mongoose.models.JWTSecret || mongoose.model('JWTSecret', JWTSecretSchema);
 
 export default JWTSecret;

@@ -1,1 +1,4 @@
 .next/
+out_publish/
+out_functions/
+.idea/

@@ -11,11 +11,11 @@ const UserSchema = new Schema({
 	adminPrivileges: Boolean,
 	emailVerified: Boolean,
 	subscription: Boolean,
-	createdAt: Date
+	createdAt: Date,
 });
 
-const User = mongoose.models.User || mongoose.model("User", UserSchema);
+UserSchema.statics.idLoader = findOneLoaderFactory('User');
 
-User.statics.idLoader = findOneLoaderFactory("User");
+const User = mongoose.models.User || mongoose.model('User', UserSchema);
 
 export default User;

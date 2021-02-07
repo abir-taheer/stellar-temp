@@ -14,7 +14,6 @@ export default gql`
 		format: String
 		resourceType: String
 		createdAt: DateTime
-		tags: [String]
 
 		# Dynamic props
 		url(preset: UrlPresets!): String

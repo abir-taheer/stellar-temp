@@ -10,10 +10,14 @@ const apolloServer = new ApolloServer({
 	context: async ({ req }) => {
 		let user, signedIn;
 
-		const jwt =
+		let jwt =
 			req.cookies['auth-jwt'] ||
 			req.headers['x-access-token'] ||
 			req.headers['authorization'];
+
+		if(jwt && jwt.startsWith("Bearer ")){
+			jwt = jwt.replace("Bearer ", '');
+		}
 
 		if (jwt) {
 			const data = await getJWTData(jwt);
@@ -45,6 +49,7 @@ const apolloServer = new ApolloServer({
 		return {
 			user,
 			signedIn,
+			adminRequired
 		};
 	},
 	playground: {

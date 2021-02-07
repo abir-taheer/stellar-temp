@@ -15,15 +15,15 @@ const getJWTData = async (jwt) => {
 	/** @type Array */
 	const possibleSecrets = await JWTSecret.find({
 		maxTokenExpiration: {
-			$lt: now,
+			$gt: now,
 		},
 	});
 
 	let data;
 
 	for (let i = 0; i < possibleSecrets.length; i++) {
-		const secret = possibleSecrets[i];
-		data = silentVerify(jwt, secret);
+		const {secret} = possibleSecrets[i];
+		data = await silentVerify(jwt, secret);
 
 		if (data) {
 			return data;

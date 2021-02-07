@@ -8,11 +8,7 @@ export default async (
 ) => {
 	adminRequired();
 
-	const page = await Page.findById(id);
-
-	if (!page) {
-		throw new UserInputError('There is no page with that id');
-	}
+	const page = await Page.findByIdOrThrowError(id);
 
 	if (!title) {
 		throw new UserInputError('The title field cannot be left empty');

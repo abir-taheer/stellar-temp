@@ -1,10 +1,9 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import layout from '../../../styles/Layout.module.css';
-import galleryItems from '../../gallery/galleryItems';
 import GalleryGridItem from './GalleryGridItem';
 
-const GalleryGrid = () => {
+const GalleryGrid = ({ pages }) => {
 	return (
 		<div>
 			<h2>Galleries</h2>
@@ -14,7 +13,7 @@ const GalleryGrid = () => {
 				justify={'center'}
 				className={layout.bottomMargin}
 			>
-				{galleryItems.map((item, index) => (
+				{pages?.map((item, index) => (
 					<GalleryGridItem key={index} {...item} />
 				))}
 			</Grid>

@@ -5,7 +5,7 @@ export default async (root, { order }, { adminRequired }) => {
 	const idOrderMap = {};
 
 	order.forEach((row) => {
-		idOrderMap[row.id] = row.order;
+		idOrderMap[row.pageId] = row.order;
 	});
 
 	const allIds = Object.keys(idOrderMap);

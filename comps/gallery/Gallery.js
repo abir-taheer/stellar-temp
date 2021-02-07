@@ -14,6 +14,7 @@ const Gallery = ({ pictures, rowHeight = 250 }) => {
 				rowHeight,
 				margins: 4,
 				captions: false,
+				lastRow: "center"
 			});
 		}
 	});

@@ -1,9 +1,11 @@
 import Page from '../../../models/page';
 import { UserInputError } from 'apollo-server-micro';
+import { randomBytes } from 'crypto';
+import Picture from '../../../models/picture';
 
 export default async (
 	root,
-	{ title, url, head, body, includes },
+	{ title, shortTitle, url, head, body, includes, coverPic },
 	{ adminRequired }
 ) => {
 	adminRequired();
@@ -26,13 +28,29 @@ export default async (
 
 	const order = await Page.countDocuments();
 
+	let coverPicId;
+
+	if (coverPic) {
+		const randomName = randomBytes(4).toString('hex');
+		const publicId = `pages/${url}/${randomName}`;
+
+		const picture = await Picture.createFromUpload({
+			...coverPic,
+			publicId,
+		});
+
+		coverPicId = picture.id;
+	}
+
 	return await Page.create({
 		title,
+		shortTitle,
 		body,
 		head,
 		url,
 		includes,
 		order,
+		coverPicId,
 		pictureIds: [],
 	});
 };

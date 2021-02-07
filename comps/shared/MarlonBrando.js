@@ -31,7 +31,6 @@ const MarlonBrando = () => {
 					}}
 				>
 					<h4>"STELLAR! HEY STELLAR! I LOVE YOU, BABY."</h4>
-					<p>- Marlon Brando</p>
 				</Grid>
 				<Grid item>
 					<img

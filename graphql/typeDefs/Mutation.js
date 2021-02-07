@@ -11,13 +11,21 @@ export default gql`
 		marlonBrando: Boolean!
 	}
 
+	input PictureInput {
+		file: Upload!
+		title: String!
+		alt: String!
+	}
+
 	type Mutation {
 		createPage(
 			title: String!
+			shortTitle: String
 			url: String!
 			head: String!
 			body: String!
 			includes: IncludesInput!
+			coverPic: PictureInput
 		): Page
 		editPage(
 			id: ObjectId!
@@ -27,21 +35,32 @@ export default gql`
 			body: String!
 			includes: IncludesInput!
 		): Page
-		deletePage(id: ObjectId!): Boolean
-		reorderPages(order: [PageOrderInput]): [Page]
 
-		addPictureToPage(
-			picture: Upload!
-			title: String!
-			alt: String!
+		setPageTitle(title: String!, pageId: ObjectId!): Page
+		setPageUrl(url: String!, pageId: ObjectId!): Page
+		setPageHead(head: String!, pageId: ObjectId!): Page
+		setPageBody(body: String!, pageId: ObjectId!): Page
+		setPageIncludes(includes: IncludesInput!, pageId: ObjectId!): Page
+		setPageCoverPicByUpload(
+			coverPic: PictureInput!
 			pageId: ObjectId!
-		): Picture
+		): Page
+		setPageCoverPicByPictureId(
+			pictureId: ObjectId!
+			pageId: ObjectId!
+		): Page
+
+		deletePage(id: ObjectId!): Boolean
+		reorderPages(order: [PageOrderInput!]!): [Page]
+
+		addPictureToPage(picture: PictureInput!, pageId: ObjectId!): Picture
 		editPicture(id: ObjectId!, title: String!, alt: String!): Picture
 		deletePictureFromPage(pageId: ObjectId!, pictureId: ObjectId!): Page
-		setDefaultPicture(pictureId: ObjectId!, pageId: ObjectId!): Page
+
+		uploadPicture(picture: PictureInput!): Picture
 
 		login(email: String!, password: String!): String!
-		forgotPassword(email: String!): Boolean!
+		requestPasswordResetEmail(email: String!): Boolean!
 		changePassword(currentPassword: String!, newPassword: String!): User!
 	}
 `;

@@ -1,13 +1,19 @@
 import addPictureToPage from './addPictureToPage';
-import setDefaultPicture from './setDefaultPicture';
-import reorderPages from './reorderPages';
-import login from './login';
-import editPage from './editPage';
-import deletePictureFromPage from './deletePictureFromPage';
-import deletePage from './deletePage';
 import createPage from './createPage';
+import deletePage from './deletePage';
+import deletePictureFromPage from './deletePictureFromPage';
+import editPage from './editPage';
+import login from './login';
+import reorderPages from './reorderPages';
+import setPageCoverPicByPictureId from './setPageCoverPicByPictureId';
+import setPageCoverPicByUpload from './setPageCoverPicByUpload';
+import setPageHead from './setPageHead';
+import setPageIncludes from './setPageIncludes';
+import setPageTitle from './setPageTitle';
+import setPageUrl from './setPageUrl';
+import uploadPicture from './uploadPicture';
 
-export default  {
+export default {
 	addPictureToPage,
 	createPage,
 	deletePage,
@@ -15,5 +21,11 @@ export default  {
 	editPage,
 	login,
 	reorderPages,
-	setDefaultPicture
-}
+	setPageCoverPicByPictureId,
+	setPageCoverPicByUpload,
+	setPageHead,
+	setPageIncludes,
+	setPageTitle,
+	setPageUrl,
+	uploadPicture,
+};

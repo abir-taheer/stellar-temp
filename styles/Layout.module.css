@@ -10,12 +10,13 @@
 }
 
 .main {
-	padding: 2.5rem 0.5rem;
+	padding: 2.5rem 0.75rem;
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	max-width: 1200px;
 }
 
 .footer {
@@ -37,8 +38,12 @@
 	font-size: 1rem;
 }
 
+.subtitle {
+	font-size: 0.7rem;
+}
+
 .cardMedia {
-	height: 370px;
+	height: 330px;
 }
 
 .card {
@@ -79,7 +84,6 @@
 }
 
 .gallery {
-	margin-top: 2.5rem;
 	max-width: 100%;
 	text-align: center;
 	width: 90vw;
@@ -87,4 +91,22 @@
 
 .galleryImage {
 	cursor: zoom-in;
+}
+
+.editorWrapper {
+	border: 1px solid rgba(0, 0 ,0, 0.1);
+	border-radius: 10px;
+}
+
+.editor {
+	padding: 0 1rem;
+	min-height: 100px;
+}
+
+.editorToolbar {
+	border-radius: 10px 10px 5px 5px !important;
+}
+
+.formInput {
+	margin: 1rem;
 }

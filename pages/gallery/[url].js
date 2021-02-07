@@ -26,7 +26,7 @@ export async function getStaticProps(context) {
 
 	const pictures = await Promise.all(
 		pagePictures.map(async (image) => {
-			const { id, title, alt, resourceId, order } = image;
+			const { id, title, alt, resourceId } = image;
 
 			const resource = await CloudinaryResource.idLoader.load(resourceId);
 			const { height, width, format, resourceType } = resource;
@@ -36,7 +36,6 @@ export async function getStaticProps(context) {
 				title,
 				alt,
 				resourceId,
-				order,
 				height,
 				width,
 				format,
@@ -94,7 +93,9 @@ const GalleryPage = ({ title, head, body, includes, pictures }) => {
 
 				{includes?.marlonBrando && <MarlonBrando />}
 
+				<h2 style={{ textAlign: 'center' }}>Gallery</h2>
 				<Gallery pictures={pictures} />
+
 				<ContactUs />
 			</main>
 		</div>

@@ -7,6 +7,7 @@ import Page from './Page';
 import ObjectId from 'graphql-scalar-objectid';
 import { GraphQLDate, GraphQLTime, GraphQLDateTime } from 'graphql-iso-date';
 import Mutation from './Mutation';
+import User from "./User";
 
 const Resolvers = {
 	CloudinaryResource,
@@ -14,6 +15,7 @@ const Resolvers = {
 	Query,
 	Mutation,
 	Page,
+	User,
 	// Custom Scalar Types
 	ObjectId,
 	Date: GraphQLDate,

@@ -19,3 +19,7 @@ a {
 .ReactGridGallery_tile-viewport {
 	border-radius: 10px;
 }
+
+.tox-tinymce {
+	min-width: 70vw;
+}

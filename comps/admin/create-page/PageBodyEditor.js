@@ -1,12 +1,6 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import { gql, useMutation } from '@apollo/client';
-import layout from '../../../styles/Layout.module.css';
-
-const Editor = dynamic(
-	() => import('react-draft-wysiwyg').then((mod) => mod.Editor),
-	{ ssr: false }
-);
+import { Editor } from '@tinymce/tinymce-react';
 
 const UPLOAD_MUTATION = gql`
 	mutation($file: Upload!) {
@@ -26,46 +20,39 @@ const PageBodyEditor = ({ value, setValue, className, disabled }) => {
 		<div className={className}>
 			<p>Page Body:</p>
 			<Editor
-				disabled={disabled}
-				wrapperClassName={layout.editorWrapper}
-				toolbarClassName={layout.editorToolbar}
-				editorClassName={layout.editor}
-				placeholder={"Enter your desired body content here"}
-				currentState={value}
-				onChange={editorState => setValue(editorState)}
-				toolbar={{
-					image: {
-						uploadEnabled: true,
-						alignmentEnabled: true,
-						uploadCallback: async (file) => {
-							const { data } = await uploadPicture({
-								variables: { file },
-							});
-
-							return {
-								data: {
-									link: data?.uploadPicture?.resource?.url,
-								},
-							};
-						},
-						previewImage: true,
-						inputAccept:
-							'image/gif,image/jpeg,image/jpg,image/png,image/svg',
-						alt: {
-							present: true,
-							mandatory: false,
-						},
-						defaultSize: {
-							height: 'auto',
-							width: '400',
-						},
+				value={value}
+				apiKey={process.env.NEXT_APP_TINYMCE_APIKEY}
+				init={{
+					height: 500,
+					menubar: true,
+					plugins: [
+						'advlist autolink lists link image charmap print preview anchor',
+						'searchreplace visualblocks code fullscreen',
+						'insertdatetime media table paste code help wordcount',
+					],
+					toolbar:
+						'undo redo | formatselect | bold italic forecolor backcolor | \
+						alignleft aligncenter alignright alignjustify | \
+						bullist numlist outdent indent | removeformat | image | help',
+					automatic_uploads: true,
+					images_upload_handler: (file, success, failure) => {
+						uploadPicture({
+							variables: { file: file.blob() },
+						})
+							.then(({ data }) =>
+								success(data?.uploadPicture?.resource?.url)
+							)
+							.catch(failure);
 					},
+					images_upload_url: false,
 				}}
+				onEditorChange={(newValue) => setValue(newValue)}
 			/>
-			<p style={{fontSize: "0.75rem", color:"grey"}}>
+			<p style={{ fontSize: '0.75rem', color: 'grey' }}>
 				Add your own content to the page. This can be a simple message
-				or any information you'd like. <br/>You may also leave it empty if
-				you want the page to just contain the gallery
+				or any information you'd like. <br />
+				You may also leave it empty if you want the page to just contain
+				the gallery
 			</p>
 		</div>
 	);

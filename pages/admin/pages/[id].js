@@ -44,6 +44,11 @@ export default function Page() {
 	const router = useRouter();
 	const { id } = router.query;
 	const { data, loading } = useQuery(QUERY, { variables: { id } });
+	const [title, setTitle] = useState("");
+	const [head, setHead] = useState("");
+	const [url, setUrl] = useState("");
+	const [body, setBody] = useState("");
+
 
 	useEffect(() => {
 		if (data?.page) {
@@ -75,7 +80,7 @@ export default function Page() {
 		<SiteAdminRequired>
 			<div className={layout.container}>
 				<Head>
-					<title>{} | Stellar Cellar Doors</title>
+					<title>{title || "Edit Page"} | Stellar Cellar Doors</title>
 				</Head>
 				<main className={layout.main}>
 					<PictureUploadDialog />

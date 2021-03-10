@@ -16,7 +16,6 @@ import { useRouter } from 'next/router';
 const SUBMIT_MUTATION = gql`
 	mutation(
 		$title: String!
-		$shortTitle: String!
 		$url: String!
 		$head: String!
 		$body: String!
@@ -25,7 +24,6 @@ const SUBMIT_MUTATION = gql`
 	) {
 		createPage(
 			title: $title
-			shortTitle: $shortTitle
 			url: $url
 			head: $head
 			body: $body
@@ -37,7 +35,7 @@ const SUBMIT_MUTATION = gql`
 	}
 `;
 
-function getSafeUrl(text) {
+export function getSafeUrl(text) {
 	return text
 		.toLowerCase()
 		.replace(/ /g, '-')
@@ -48,7 +46,6 @@ export default function PageCreationForm() {
 	const router = useRouter();
 	const [title, setTitle] = useState('');
 	const [url, setUrl] = useState('');
-	const [shortTitle, setShortTitle] = useState('');
 	const [head, setHead] = useState('');
 	const [body, setBody] = useState('');
 	const [marlonBrando, setMarlonBrando] = useState(false);
@@ -58,7 +55,6 @@ export default function PageCreationForm() {
 	const [submit, { loading, error }] = useMutation(SUBMIT_MUTATION, {
 		variables: {
 			title,
-			shortTitle,
 			url,
 			head,
 			body,
@@ -110,7 +106,7 @@ export default function PageCreationForm() {
 					label={'Page URL'}
 					helperText={
 						<>
-							https://stellarcellardoors.com/gallery/
+							https://stellarcellardoors.com/
 							{url}
 							<br />
 							Only letters, numbers, dashes, and underscores are
@@ -120,31 +116,14 @@ export default function PageCreationForm() {
 					placeholder={''}
 					className={layout.formInput}
 				/>
-				{title.length > 30 && (
-					<TextField
-						value={shortTitle}
-						onChange={(ev) => setShortTitle(ev.target.value)}
-						variant={'outlined'}
-						color={'primary'}
-						label={'Short Title'}
-						helperText={
-							<>
-								The primary title is longer than 25 characters.
-								<br />
-								Optionally, provide a shorter title here
-							</>
-						}
-						className={layout.formInput}
-						disabled={loading}
-					/>
-				)}
+
 				<TextField
 					value={head}
 					onChange={(ev) => setHead(ev.target.value)}
 					label={'Page Head (code)'}
 					multiline
 					variant={'outlined'}
-					rows={3}
+					rows={head.split("\n").length + 1}
 					style={{ fontFamily: 'monospace' }}
 					helperText={
 						<>
@@ -224,6 +203,11 @@ export default function PageCreationForm() {
 					Upload {coverPic && 'New'} Picture
 				</Button>
 			</div>
+			<br />
+			<p style={{ margin: '1rem', fontWeight: 900 }}>
+				You will be able to upload gallery photos after you create a
+				page.
+			</p>
 			<hr style={{ margin: '1rem' }} />
 			{error && (
 				<p style={{ color: 'red', margin: '1rem' }}>{error.message}</p>

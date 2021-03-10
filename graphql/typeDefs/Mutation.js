@@ -20,7 +20,6 @@ export default gql`
 	type Mutation {
 		createPage(
 			title: String!
-			shortTitle: String
 			url: String!
 			head: String!
 			body: String!

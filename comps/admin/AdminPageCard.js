@@ -3,10 +3,19 @@ import IconButton from '@material-ui/core/IconButton';
 import { ArrowDownward, ArrowUpward } from '@material-ui/icons';
 import Grid from '@material-ui/core/Grid';
 import Link from 'next/link';
+import StyledLink from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 
-const AdminPageCard = ({ id, coverPic, url, title, moveUp, order, moveDown }) => {
+const AdminPageCard = ({
+	id,
+	coverPic,
+	url,
+	title,
+	moveUp,
+	order,
+	moveDown,
+}) => {
 	return (
 		<Card style={{ padding: '1rem', margin: '1rem' }}>
 			{order !== 0 && (
@@ -44,11 +53,24 @@ const AdminPageCard = ({ id, coverPic, url, title, moveUp, order, moveDown }) =>
 				</Grid>
 				<Grid xs={7}>
 					<h3>{title}</h3>
-					<Link href={'/admin/pages/' + id}>
-						<Button variant={'outlined'} color={'primary'}>
-							Edit
-						</Button>
-					</Link>
+					<StyledLink
+						style={{
+							fontSize: 12,
+							color: 'grey',
+							marginBottom: '1.5rem',
+						}}
+						href={'/' + url}
+						target={"_blank"}
+					>
+						https://stellarcellardoors.com/{url}
+					</StyledLink>
+					<p>
+						<Link href={'/admin/pages/' + id}>
+							<Button variant={'outlined'} color={'primary'}>
+								Edit
+							</Button>
+						</Link>
+					</p>
 				</Grid>
 			</Grid>
 		</Card>

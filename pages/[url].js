@@ -1,14 +1,14 @@
 import React from 'react';
-import layout from '../../styles/Layout.module.css';
-import Gallery from '../../comps/gallery/Gallery';
+import layout from '../styles/Layout.module.css';
+import Gallery from '../comps/gallery/Gallery';
 import Head from 'next/head';
-import ContactUs from '../../comps/ui/ContactUs';
-import BackButton from '../../comps/ui/BackButton';
-import MarlonBrando from '../../comps/shared/MarlonBrando';
-import HowToMeasure from '../../comps/shared/HowToMeasure';
-import Page from '../../models/page';
-import Picture from '../../models/picture';
-import CloudinaryResource from '../../models/cloudinaryResource';
+import ContactUs from '../comps/ui/ContactUs';
+import BackButton from '../comps/ui/BackButton';
+import MarlonBrando from '../comps/shared/MarlonBrando';
+import HowToMeasure from '../comps/shared/HowToMeasure';
+import Page from '../models/page';
+import Picture from '../models/picture';
+import CloudinaryResource from '../models/cloudinaryResource';
 
 export async function getStaticProps(context) {
 	const { url } = context.params;
@@ -89,13 +89,19 @@ const GalleryPage = ({ title, head, body, includes, pictures }) => {
 
 				{includes.howToMeasure && <HowToMeasure />}
 
-				<div dangerouslySetInnerHTML={{ __html: body }} />
+				<div
+					style={{ width: 1400, maxWidth: '95vw', height: 220 }}
+					dangerouslySetInnerHTML={{ __html: body }}
+				/>
 
 				{includes?.marlonBrando && <MarlonBrando />}
 
-				<h2 style={{ textAlign: 'center' }}>Gallery</h2>
-				<Gallery pictures={pictures} />
-
+				{pictures.length > 0 && (
+					<>
+						<h2 style={{ textAlign: 'center' }}>Gallery</h2>
+						<Gallery pictures={pictures} />
+					</>
+				)}
 				<ContactUs />
 			</main>
 		</div>

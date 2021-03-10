@@ -12,6 +12,7 @@ import setPageIncludes from './setPageIncludes';
 import setPageTitle from './setPageTitle';
 import setPageUrl from './setPageUrl';
 import uploadPicture from './uploadPicture';
+import setPageBody from './setPageBody';
 
 export default {
 	addPictureToPage,
@@ -28,4 +29,5 @@ export default {
 	setPageTitle,
 	setPageUrl,
 	uploadPicture,
+	setPageBody,
 };

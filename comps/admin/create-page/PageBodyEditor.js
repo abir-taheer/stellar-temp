@@ -21,10 +21,15 @@ const PageBodyEditor = ({ value, setValue, className, disabled }) => {
 			<p>Page Body:</p>
 			<Editor
 				value={value}
-				apiKey={process.env.NEXT_APP_TINYMCE_APIKEY}
+				apiKey={
+					process.env.NEXT_APP_TINYMCE_APIKEY ||
+					'm257jlgp1mrcjuhac6m4ffb5i4va70spc0ho5r36vmqiesh3'
+				}
 				init={{
 					height: 500,
 					menubar: true,
+					placeholder:
+						"Think of this as the content of the page besides the gallery. This will be displayed above the gallery. You can include any text, images, or videos you want here. You can also choose to leave this empty if you don't want to add any other content to the page.",
 					plugins: [
 						'advlist autolink lists link image charmap print preview anchor',
 						'searchreplace visualblocks code fullscreen',
@@ -46,6 +51,7 @@ const PageBodyEditor = ({ value, setValue, className, disabled }) => {
 					},
 					images_upload_url: false,
 				}}
+				disabled={disabled}
 				onEditorChange={(newValue) => setValue(newValue)}
 			/>
 			<p style={{ fontSize: '0.75rem', color: 'grey' }}>

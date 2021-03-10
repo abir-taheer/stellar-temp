@@ -5,7 +5,7 @@ import Picture from '../../../models/picture';
 
 export default async (
 	root,
-	{ title, shortTitle, url, head, body, includes, coverPic },
+	{ title, url, head, body, includes, coverPic },
 	{ adminRequired }
 ) => {
 	adminRequired();
@@ -44,7 +44,6 @@ export default async (
 
 	return await Page.create({
 		title,
-		shortTitle,
 		body,
 		head,
 		url,
